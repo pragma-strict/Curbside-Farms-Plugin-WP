@@ -17,6 +17,12 @@ if (! defined('ABSPATH')){
 }
 
 
+function curbside_shortcode() {
+    return "Added from shortcode!";
+}
+add_shortcode( 'curb', 'curbside_shortcode' );
+
+
 // Class contains most of the functionality of this plugin
 class CurbsidePlugin
 { 
@@ -29,11 +35,12 @@ class CurbsidePlugin
     public $curbside_page_meta_key = "curbside_farms_page";
 
     function activate(){
-        $this->add_pages_without_check();
+        //$this->add_pages_without_check();
+        // Add Shortcode
     }
 
     function deactivate(){
-        $this->trash_pages();
+        //$this->trash_pages();
     }
 
     // Add pages unique to the Curbside Farms system
@@ -81,6 +88,7 @@ class CurbsidePlugin
     }
 
     // Move Curbside pages to trash
+    // WARNING: Currently trashes ALL pages!
     function trash_pages(){
         $existing_pages = $this->get_curbside_pages();
         foreach($existing_pages as $post){
