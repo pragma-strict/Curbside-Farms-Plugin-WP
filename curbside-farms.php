@@ -16,6 +16,7 @@ if (! defined('ABSPATH')){
     die;
 }
 
+require( plugin_dir_path( __FILE__ ) . "pages/order-bed.php" );
 
 /**
  * Note: For now this plugin will add pages unless pages with the same name already exist. On uninstall it will remove pages based on their name - if there are multiple pages with the same name it will remove the first one it finds. This is a problem because it might accidentally cause non-curbside pages to be removed but I'll sort that out later. 
@@ -141,8 +142,6 @@ function curbside_debug() {
     return $content;
 }
 add_shortcode( 'debug_curbside', 'curbside_debug' );
-
-require( plugin_dir_path( __FILE__ ) . "/pages/order-bed.php" );
 
 // Activate plugin
 register_activation_hook( __FILE__, array($curbsidePlugin, 'activate') );
