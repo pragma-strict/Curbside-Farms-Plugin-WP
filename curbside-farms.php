@@ -142,6 +142,8 @@ function curbside_debug() {
 }
 add_shortcode( 'debug_curbside', 'curbside_debug' );
 
+require( plugin_dir_path( __FILE__ ) . "/pages/order-bed.php" );
+
 // Activate plugin
 register_activation_hook( __FILE__, array($curbsidePlugin, 'activate') );
 
