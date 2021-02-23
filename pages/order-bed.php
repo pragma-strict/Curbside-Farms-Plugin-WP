@@ -7,8 +7,8 @@ if (! defined('ABSPATH')){
     die;
 }
 
-function order_bed(){
+function get_order_bed(){
    return "This is the bed ordering page!";
 }
 
-add_shortcode( 'cs_order_bed', 'order_bed' );
+add_shortcode( 'cs_order_bed', 'get_order_bed' );
