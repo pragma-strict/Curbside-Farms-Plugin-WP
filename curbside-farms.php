@@ -32,6 +32,4 @@ register_deactivation_hook( __FILE__, array($curbsidePlugin, 'deactivate') );
 // Uninstall plugin
 //register_uninstall_hook( __FILE__, array($curbsidePlugin, 'uninstall') );
 
-
-add_shortcode( 'cs_order_bed', array( $curbsidePlugin, 'get_order_bed' ) );
-add_shortcode( 'cs_vision', array( $curbsidePlugin, 'get_vision' ) );
+$curbsidePlugin->register_shortcodes();

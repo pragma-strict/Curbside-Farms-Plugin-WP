@@ -36,7 +36,6 @@ class CurbsidePlugin
 
    function activate(){
       $this->add_pages();
-      // Add Shortcode
    }
 
    function deactivate(){
@@ -121,5 +120,10 @@ class CurbsidePlugin
       ob_start();
       require_once(plugin_dir_path( __FILE__ ) . "../pages/about.php");
       return ob_get_clean();
+   }
+
+   function register_shortcodes(){
+      add_shortcode( 'cs_order_bed', array( $this, 'get_order_bed' ) );
+      add_shortcode( 'cs_vision', array( $this, 'get_vision' ) );
    }
 }
