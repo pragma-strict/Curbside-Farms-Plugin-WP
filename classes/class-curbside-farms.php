@@ -31,7 +31,8 @@ class CurbsidePlugin
    public $curbside_page_titles = array(
       "Order Bed",
       "Community",
-      "My Page"
+      "My Page",
+      "Vision"
    ); 
    public $curbside_page_meta_key = "curbside_farms_page";
 
@@ -64,20 +65,6 @@ class CurbsidePlugin
          }
       }
       return $posts_with_title;
-   }
-
-   // Adds pages without checking for existing pages. Do not use.
-   function add_pages_without_check(){
-      foreach( $this->curbside_page_titles as $title ){
-         $post_args = array(
-               'post_title' => $title,
-               'post_content' => 'This is the content of my new page',
-               'post_type' => 'page',
-               'post_status' => 'publish'
-         );
-         $post_id = wp_insert_post( $post_args );
-         //add_post_meta( $post_id, $this->curbside_page_meta_key, $title, false );
-      }
    }
 
    // Move Curbside pages to trash

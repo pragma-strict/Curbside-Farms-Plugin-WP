@@ -33,3 +33,4 @@ register_deactivation_hook( __FILE__, array($curbsidePlugin, 'deactivate') );
 //register_uninstall_hook( __FILE__, array($curbsidePlugin, 'uninstall') );
 
 require( plugin_dir_path( __FILE__ ) . "pages/order-bed.php" );
+require( plugin_dir_path( __FILE__ ) . "pages/about.php" );
