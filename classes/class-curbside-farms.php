@@ -110,4 +110,16 @@ class CurbsidePlugin
       $posts = get_posts( $get_post_args );
       return $posts;
    }
+
+   function get_order_bed(){
+      ob_start();
+      require_once(plugin_dir_path( __FILE__ ) . "../pages/order-bed.php");
+      return ob_get_clean();
+   }
+
+   function get_vision(){
+      ob_start();
+      require_once(plugin_dir_path( __FILE__ ) . "../pages/about.php");
+      return ob_get_clean();
+   }
 }

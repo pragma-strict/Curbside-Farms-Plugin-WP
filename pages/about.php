@@ -5,11 +5,8 @@
 
 if (! defined('ABSPATH')){
     die;
-}
+} ?>
 
-function get_vision(){
-   $content = "This is the vision page!";
-   return $content;
-}
-
-add_shortcode( 'cs_vision', 'get_vision' );
+<div class="container">
+   <p>This is what we're all about...</p>
+</div>

@@ -32,5 +32,6 @@ register_deactivation_hook( __FILE__, array($curbsidePlugin, 'deactivate') );
 // Uninstall plugin
 //register_uninstall_hook( __FILE__, array($curbsidePlugin, 'uninstall') );
 
-require( plugin_dir_path( __FILE__ ) . "pages/order-bed.php" );
-require( plugin_dir_path( __FILE__ ) . "pages/about.php" );
+
+add_shortcode( 'cs_order_bed', array( $curbsidePlugin, 'get_order_bed' ) );
+add_shortcode( 'cs_vision', array( $curbsidePlugin, 'get_vision' ) );
