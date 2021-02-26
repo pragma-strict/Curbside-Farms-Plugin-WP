@@ -29,10 +29,8 @@ class CurbsidePlugin
 { 
    // Titles of pages the plugin creates. Duplicates will not be added.
    public $curbside_page_titles = array(
-      "Order Bed",
-      "Community",
-      "My Page",
-      "Vision"
+      "Order Bed" => "[cs_order_bed]",
+      "Vision" => "[cs_vision]"
    ); 
    public $curbside_page_meta_key = "curbside_farms_page";
 
@@ -51,12 +49,12 @@ class CurbsidePlugin
 
    // Add Curbside pages unless pages with the same name already exist.
    function add_pages(){ 
-      foreach( $this->curbside_page_titles as $title ){
+      foreach( $this->curbside_page_titles as $title => $shortcode){
          $posts_with_title = $this->get_posts_with_title( $title );
          if ( empty( $posts_with_title ) ){
                $post_args = array(
                   'post_title' => $title,
-                  'post_content' => 'This is the content of my new page',
+                  'post_content' => $shortcode,
                   'post_type' => 'page',
                   'post_status' => 'publish'
                );
@@ -69,7 +67,7 @@ class CurbsidePlugin
 
    // Move Curbside pages to trash
    function trash_pages(){
-      foreach( $this->curbside_page_titles as $title ){
+      foreach( $this->curbside_page_titles as $title => $shortcode){
          $pages_with_title = $this->get_posts_with_title( $title );
          if ( !empty($pages_with_title) ){
                $post_to_delete = $pages_with_title[0];
