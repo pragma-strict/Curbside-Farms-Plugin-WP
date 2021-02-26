@@ -9,24 +9,29 @@ if (! defined('ABSPATH')){
 
 if($_POST){
       //user posted variables
-      $name = 'name';
-      $email = 'ian@curbsidefarms.ca';
-      $message = 'Test Mail';
-      
+      // $name = 'name';
+      // $email = 'ian@curbsidefarms.ca';
+      //$message = "New bed order for: " . $_POST['name'];
+      //$message .= " in " . $_POST['area'] . "\n";
+      //$message .= "Return email: " . $_POST['email'];
+
       //php mailer variables
-      $to = 'ianrdejong@gmail.com';
-      $subject = "Report";
-      $headers = 'From: '. $email . "\r\n" .
-         'Reply-To: ' . $email . "\r\n";
+      // $to = 'ianrdejong@gmail.com';
+      // $subject = "Report";
+      // $headers = 'From: '. $email . "\r\n" .
+      //    'Reply-To: ' . $email . "\r\n";
       
       //Here put your Validation and send mail
-      $sent = wp_mail($to, $subject, strip_tags($message), $headers);
+      //$sent = wp_mail($to, $subject, strip_tags($message), $headers);
 
-      return "Sent mail! Thanks for submitting!";
-      // Redirect to this page.
-      //header( "Location: {../order-bed}", true, 303 );
-      //exit();
+      echo "Processing post request...";
+
+      // ob_start();
+      // //require_once( plugin_dir_path( __FILE__ ) . "/order-bed-confirmation.php" );
+      // echo ob_get_clean();
    }
+   else
+   { 
 ?>
 
 <div style='min-height: 2rem;'></div>
@@ -34,7 +39,7 @@ if($_POST){
    <h3>Order a garden bed</h3>
    <p>All beds are handmade in Fairfield from locally-sourced wooden pallets</p>
    <hr>
-   <form action='../order-bed' method='post'>
+   <form action='../order-bed/' method='post'>
    <label for='name'>First name: </label>
    <input type='text' name='name' style='float:right'>
    <br>
@@ -75,3 +80,5 @@ if($_POST){
    <p>For cancellations or alterations, email: ianrdejong@gmail.com</p>
    </form>
 </div>
+
+<?php } ?>
