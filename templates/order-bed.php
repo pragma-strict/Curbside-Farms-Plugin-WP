@@ -7,6 +7,7 @@ if (! defined('ABSPATH')){
     die;
 }
 
+
       //user posted variables
       // $name = 'name';
       // $email = 'ian@curbsidefarms.ca';
@@ -28,15 +29,13 @@ if (! defined('ABSPATH')){
       // echo ob_get_clean();
       ?>
 
-<script type="text/javascript" src="<?php echo plugins_url("curbside-farms/js/order-bed.js"); ?>"></script>
-
 <div style='min-height: 2rem;'></div>
 
 <div class="container">
    <h3>Order a garden bed</h3>
    <p>All beds are handmade in Fairfield from locally-sourced wooden pallets</p>
    <hr>
-   <form onsubmit="submit_bed_order()">
+   <form id="bed-order-form" action="#" method="post" data-url="<? echo admin_url('admin-ajax.php'); ?>">
       <label for='name'>First name: </label>
       <input type='text' id='name' style='float:right'>
       <br>
@@ -77,3 +76,5 @@ if (! defined('ABSPATH')){
       <p>For cancellations or alterations, email: ianrdejong@gmail.com</p>
    </form>
 </div>
+
+<script type='text/javascript' src="<?php echo plugins_url("curbside-farms/js/order-bed.js"); ?>"></script>

@@ -112,13 +112,14 @@ class CurbsidePlugin
 
    function get_order_bed(){
       ob_start();
-      require_once(plugin_dir_path( __FILE__ ) . "../pages/order-bed.php");
+      // Echo include stylesheet here...
+      require_once(plugin_dir_path( __FILE__ ) . "../templates/order-bed.php");
       return ob_get_clean();
    }
 
    function get_vision(){
       ob_start();
-      require_once(plugin_dir_path( __FILE__ ) . "../pages/about.php");
+      require_once(plugin_dir_path( __FILE__ ) . "../templates/about.php");
       return ob_get_clean();
    }
 

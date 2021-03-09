@@ -5,8 +5,13 @@
 
 if (! defined('ABSPATH')){
     die;
-} ?>
+} 
 
+if($_POST){
+   echo "YAY";
+}
+
+?>
 <div class="container">
-   <p>Thanks for submitting!</p>
+    This is what we're all about!
 </div>
