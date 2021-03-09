@@ -7,7 +7,6 @@ if (! defined('ABSPATH')){
     die;
 }
 
-
       //user posted variables
       // $name = 'name';
       // $email = 'ian@curbsidefarms.ca';
@@ -29,51 +28,70 @@ if (! defined('ABSPATH')){
       // echo ob_get_clean();
       ?>
 
+<link rel="stylesheet" href="<?php echo (plugins_url('curbside-farms/css/order-bed.css')); ?>">
+
 <div style='min-height: 2rem;'></div>
 
 <div class="container">
    <h3>Order a garden bed</h3>
    <p>All beds are handmade in Fairfield from locally-sourced wooden pallets</p>
    <hr>
+
    <form id="bed-order-form" action="#" method="post" data-url="<? echo admin_url('admin-ajax.php'); ?>">
-      <label for='name'>First name: </label>
-      <input type='text' id='name' style='float:right'>
-      <br>
-      <label for='email'>Email: </label>
-      <input type='email' id='email' style='float:right'>
-      <br>
-      <label for='area'>Neighborhood: </label>
-      <select id='area' style='float:right' >
-         <option value='burnside-gorge'>Burnside Gorge</option>
-         <option value='downtown-harris-green'>Downtown Harris Green</option>
-         <option value='fairfield-gonzales'>Fairfield & Gonzales</option>
-         <option value='fernwood'>Fernwood</option>
-         <option value='hillside-quadra'>Hillside-Quadra</option>
-         <option value='james-bay'>James Bay</option>
-         <option value='jubilee'>Jubilee</option>
-         <option value='north-park'>North Park</option>
-         <option value='oaklands'>Oaklands</option>
-         <option value='rockland'>Rockland</option>
-         <option value='vic-west'>Vic West</option>
-      </select>
-      <br>
-      <label for='number-of-beds'>Number of beds: </label>
-      <select id='number-of-beds' style='float:right'>
-         <option value='1'>1</option>
-         <option value='2'>2</option>
-         <option value='3'>3</option>
-         <option value='4'>4</option>
-         <option value='5'>5</option>
-         <option value='6'>6</option>
-         <option value='7'>7</option>
-         <option value='8'>8</option>
-         <option value='9'>9</option>
-         <option value='10'>10</option>
-      </select>
+      
+      <div class="field-container">
+         <input type='text' id='name' class="field-input" placeholder="First Name">
+         <small class="field-message-error">Error text</small>
+      </div>
+
+      <div class="field-container">
+         <input type='email' id='email' class="field-input" placeholder="Email">
+         <small class="field-message-error">Error text</small>
+      </div>
+
+      <div class="field-container">
+         <select id='area'>
+            <option value="undefined">Select neighborhood</option>
+            <option value='burnside-gorge'>Burnside Gorge</option>
+            <option value='downtown-harris-green'>Downtown Harris Green</option>
+            <option value='fairfield-gonzales'>Fairfield & Gonzales</option>
+            <option value='fernwood'>Fernwood</option>
+            <option value='hillside-quadra'>Hillside-Quadra</option>
+            <option value='james-bay'>James Bay</option>
+            <option value='jubilee'>Jubilee</option>
+            <option value='north-park'>North Park</option>
+            <option value='oaklands'>Oaklands</option>
+            <option value='rockland'>Rockland</option>
+            <option value='vic-west'>Vic West</option>
+         </select>
+         <small class="field-message-error">Error text</small>
+      </div>
+
+      <div class="field-container">
+         <select id='number-of-beds'>
+            <option value="undefined">Number of beds</option>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+            <option value='4'>4</option>
+            <option value='5'>5</option>
+            <option value='6'>6</option>
+            <option value='7'>7</option>
+            <option value='8'>8</option>
+            <option value='9'>9</option>
+            <option value='10'>10</option>
+         </select>
+         <small class="field-message-error">Error text</small>
+      </div>
+
       <hr>
-      <button type='submit' class='btn-primary'>Place Order</button>
-      <p>Beds are $35 each. We can only accept payment at time of delivery for now.</p>
-      <p>For cancellations or alterations, email: ianrdejong@gmail.com</p>
+
+      <div class="field-container">
+         <button type='submit' class='btn-primary'>Place Order</button>
+         <p>Beds are $35 each. We can only accept payment at time of delivery for now.</p>
+         <p>For cancellations or alterations, email: ianrdejong@gmail.com</p>
+      </div>
+      
    </form>
 </div>
 

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,eAAe,CAAC,gBAAgB,CAAA;EAC7B,OAAO,EAAE,aAAa;CASxB;;AAVD,AAGG,eAHY,CAAC,gBAAgB,CAG7B,KAAK,EAHR,eAAe,CAAC,gBAAgB,CAGtB,MAAM,CAAA;EACV,OAAO,EAAE,GAAG;CACd;;AALJ,AAOG,eAPY,CAAC,gBAAgB,CAO7B,oBAAoB,CAAA;EACjB,KAAK,EAAE,OAAc;CACvB",
+    "sources": [
+        "order-bed.scss"
+    ],
+    "names": [],
+    "file": "order-bed.css"
+}

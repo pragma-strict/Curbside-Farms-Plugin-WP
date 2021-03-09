@@ -1,0 +1,12 @@
+#bed-order-form .field-container {
+  padding: 10px 0 10px 0;
+}
+
+#bed-order-form .field-container input, #bed-order-form .field-container select {
+  padding: 5px;
+}
+
+#bed-order-form .field-container .field-message-error {
+  color: #cc0000;
+}
+/*# sourceMappingURL=order-bed.css.map */

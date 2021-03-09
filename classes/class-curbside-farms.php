@@ -112,7 +112,6 @@ class CurbsidePlugin
 
    function get_order_bed(){
       ob_start();
-      // Echo include stylesheet here...
       require_once(plugin_dir_path( __FILE__ ) . "../templates/order-bed.php");
       return ob_get_clean();
    }
