@@ -91,11 +91,14 @@ if (! defined('ABSPATH')){
       <hr>
 
       <div class="field-container">
-         <button type='submit' class='btn-primary'>Place Order</button>
+         <button type='submit' class='btn btn-primary'>Place Order</button>
+         <small id="submission-in-progress" class="field-message success">Submission in progress...</small>
          <p>Beds are $35 each. We can only accept payment at time of delivery for now.</p>
          <p>For cancellations or alterations, email: ianrdejong@gmail.com</p>
       </div>
       
+      <input type="hidden" name="action" value="submit_bed_order">
+
    </form>
 </div>
 

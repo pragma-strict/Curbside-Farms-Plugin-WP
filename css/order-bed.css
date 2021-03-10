@@ -11,7 +11,7 @@
   border-radius: 2px;
 }
 
-#bed-order-form .field-container input.show-error, #bed-order-form .field-container select.show-error {
+#bed-order-form .field-container input.show-message, #bed-order-form .field-container select.show-message {
   border-bottom: 2px solid red;
 }
 
@@ -28,7 +28,7 @@
   color: #00a300;
 }
 
-#bed-order-form .field-container .field-message.show-error {
+#bed-order-form .field-container .field-message.show-message {
   display: block;
 }
 /*# sourceMappingURL=order-bed.css.map */

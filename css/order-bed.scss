@@ -10,7 +10,7 @@
       border-color: rgb(189, 189, 189);
       border-radius: 2px;
       
-      &.show-error{
+      &.show-message{
          border-bottom: 2px solid red;
       }
    }
@@ -26,9 +26,8 @@
          color: rgb(0, 163, 0);
       }
 
-      &.show-error{
+      &.show-message{
          display: block;
       }
    }
-
 }
