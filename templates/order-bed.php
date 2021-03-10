@@ -39,10 +39,10 @@ if (! defined('ABSPATH')){
 
    <form id="bed-order-form" action="#" method="post" data-url="<? echo admin_url('admin-ajax.php'); ?>">
       
-      <!-- <div class="field-container"> -->
+      <div class="field-container">
          <input type='text' id='name' name='name' class="field" placeholder="First Name">
          <small id="name-error" class="field-message error">What should we call you?</small>
-      <!-- </div> -->
+      </div>
 
       <div class="field-container">
          <input type='text' id='email' name='email' class="field" placeholder="Email">

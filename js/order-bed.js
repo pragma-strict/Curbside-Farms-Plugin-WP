@@ -19,30 +19,30 @@ document.addEventListener('DOMContentLoaded', function(e) {
          numberOfBeds: bedOrderForm.querySelector("[id=number-of-beds]").value
       }
 
-      // If any bad input is found, add the error CSS and return. 
-      // if(! data.name){
-      //    bedOrderForm.querySelector("[id=name-error]").classList.add("show-message");
-      //    bedOrderForm.querySelector("[id=name]").classList.add("show-message");
-      //    return;
-      // }
+      //If any bad input is found, add the error CSS and return. 
+      if(! data.name){
+         bedOrderForm.querySelector("[id=name-error]").classList.add("show-message");
+         bedOrderForm.querySelector("[id=name]").classList.add("show-message");
+         return;
+      }
 
-      // if(! data.email || !validateEmail(data.email)){
-      //    bedOrderForm.querySelector("[id=email-error]").classList.add("show-message");
-      //    bedOrderForm.querySelector("[id=email]").classList.add("show-message");
-      //    return;
-      // }
+      if(! data.email || !validateEmail(data.email)){
+         bedOrderForm.querySelector("[id=email-error]").classList.add("show-message");
+         bedOrderForm.querySelector("[id=email]").classList.add("show-message");
+         return;
+      }
 
-      // if(data.area == "undefined"){
-      //    bedOrderForm.querySelector("[id=area-error]").classList.add("show-message");
-      //    bedOrderForm.querySelector("[id=area]").classList.add("show-message");
-      //    return;
-      // }
+      if(data.area == "undefined"){
+         bedOrderForm.querySelector("[id=area-error]").classList.add("show-message");
+         bedOrderForm.querySelector("[id=area]").classList.add("show-message");
+         return;
+      }
 
-      // if(data.numberOfBeds == "undefined"){
-      //    bedOrderForm.querySelector("[id=number-error]").classList.add("show-message");
-      //    bedOrderForm.querySelector("[id=number-of-beds]").classList.add("show-message");
-      //    return;
-      // }
+      if(data.numberOfBeds == "undefined"){
+         bedOrderForm.querySelector("[id=number-error]").classList.add("show-message");
+         bedOrderForm.querySelector("[id=number-of-beds]").classList.add("show-message");
+         return;
+      }
 
       // Disable the button when ready to submit request
       let submitButton = bedOrderForm.querySelector("[type=submit]");
@@ -51,13 +51,12 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
       // Make the POST request with fetch()
       let url = bedOrderForm.dataset.url;
-      let formData = new URLSearchParams(new FormData(bedOrderForm));
-      //let urlReadyParams = new URLSearchParams(formData);
+      let formData = new FormData(bedOrderForm);
+      let urlReadyParams = new URLSearchParams(formData);
       let requestOptions = {
          method: "POST",
-         body: formData
+         body: urlReadyParams
       }
-      let testUrl = 'https://jsonplaceholder.typicode.com/posts';
       fetch(url, requestOptions)
       .then(response => response.json())
       .then(data => console.log(data))

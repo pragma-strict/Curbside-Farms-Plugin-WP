@@ -111,6 +111,11 @@ class CurbsidePlugin
    }
 
    public function submit_bed_order(){
+      // Sanitize data
+      
+      // Store data
+      
+      // Send response!
       echo 'Post request receieved!';
       wp_die();
    }
