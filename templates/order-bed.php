@@ -39,18 +39,18 @@ if (! defined('ABSPATH')){
 
    <form id="bed-order-form" action="#" method="post" data-url="<? echo admin_url('admin-ajax.php'); ?>">
       
-      <div class="field-container">
-         <input type='text' id='name' class="field" placeholder="First Name">
+      <!-- <div class="field-container"> -->
+         <input type='text' id='name' name='name' class="field" placeholder="First Name">
          <small id="name-error" class="field-message error">What should we call you?</small>
-      </div>
+      <!-- </div> -->
 
       <div class="field-container">
-         <input type='text' id='email' class="field" placeholder="Email">
+         <input type='text' id='email' name='email' class="field" placeholder="Email">
          <small id="email-error" class="field-message error">Please enter a valid email address :)</small>
       </div>
 
       <div class="field-container">
-         <select id='area' class="field">
+         <select id='area' name='area' class="field">
             <option value="undefined">Select neighborhood</option>
             <option value='burnside-gorge'>Burnside Gorge</option>
             <option value='downtown-harris-green'>Downtown Harris Green</option>
@@ -70,7 +70,7 @@ if (! defined('ABSPATH')){
       </div>
 
       <div class="field-container">
-         <select id='number-of-beds' class="field">
+         <select id='number-of-beds' name='number-of-beds' class="field">
             <option value="undefined">Number of beds</option>
             <option value='1'>1</option>
             <option value='2'>2</option>
@@ -98,7 +98,6 @@ if (! defined('ABSPATH')){
       </div>
       
       <input type="hidden" name="action" value="submit_bed_order">
-
    </form>
 </div>
 

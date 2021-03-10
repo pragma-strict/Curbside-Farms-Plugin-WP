@@ -110,6 +110,11 @@ class CurbsidePlugin
       return $posts;
    }
 
+   public function submit_bed_order(){
+      echo 'Post request receieved!';
+      wp_die();
+   }
+
    function get_order_bed(){
       ob_start();
       require_once(plugin_dir_path( __FILE__ ) . "../templates/order-bed.php");
@@ -125,5 +130,12 @@ class CurbsidePlugin
    function register_shortcodes(){
       add_shortcode( 'cs_order_bed', array( $this, 'get_order_bed' ) );
       add_shortcode( 'cs_vision', array( $this, 'get_vision' ) );
+   }
+
+   function register_actions(){
+      add_action( 'wp_ajax_submit_bed_order', array( $this, 'submit_bed_order'));
+
+      // This allows non-logged-in users to make submissions using the same php function. I think.
+      add_action( 'wp_ajax_nopriv_submit_bed_order', array( $this, 'submit_bed_order'));
    }
 }

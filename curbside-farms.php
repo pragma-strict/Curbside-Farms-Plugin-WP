@@ -33,3 +33,4 @@ register_deactivation_hook( __FILE__, array($curbsidePlugin, 'deactivate') );
 //register_uninstall_hook( __FILE__, array($curbsidePlugin, 'uninstall') );
 
 $curbsidePlugin->register_shortcodes();
+$curbsidePlugin->register_actions();
