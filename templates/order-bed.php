@@ -28,7 +28,7 @@ if (! defined('ABSPATH')){
       // echo ob_get_clean();
       ?>
 
-<link rel="stylesheet" href="<?php echo (plugins_url('curbside-farms/css/order-bed.css')); ?>">
+<link rel="stylesheet" href="<?php echo (plugins_url('curbside-farms/css/order-bed.css')); ?> ">
 
 <div style='min-height: 2rem;'></div>
 
@@ -40,17 +40,17 @@ if (! defined('ABSPATH')){
    <form id="bed-order-form" action="#" method="post" data-url="<? echo admin_url('admin-ajax.php'); ?>">
       
       <div class="field-container">
-         <input type='text' id='name' class="field-input" placeholder="First Name">
-         <small class="field-message-error">Error text</small>
+         <input type='text' id='name' class="field" placeholder="First Name">
+         <small id="name-error" class="field-message error">What should we call you?</small>
       </div>
 
       <div class="field-container">
-         <input type='email' id='email' class="field-input" placeholder="Email">
-         <small class="field-message-error">Error text</small>
+         <input type='text' id='email' class="field" placeholder="Email">
+         <small id="email-error" class="field-message error">Please enter a valid email address :)</small>
       </div>
 
       <div class="field-container">
-         <select id='area'>
+         <select id='area' class="field">
             <option value="undefined">Select neighborhood</option>
             <option value='burnside-gorge'>Burnside Gorge</option>
             <option value='downtown-harris-green'>Downtown Harris Green</option>
@@ -64,11 +64,13 @@ if (! defined('ABSPATH')){
             <option value='rockland'>Rockland</option>
             <option value='vic-west'>Vic West</option>
          </select>
-         <small class="field-message-error">Error text</small>
+         <small id="area-error" class="field-message">
+            Your neighborhood helps us plan deliveries.
+         </small>
       </div>
 
       <div class="field-container">
-         <select id='number-of-beds'>
+         <select id='number-of-beds' class="field">
             <option value="undefined">Number of beds</option>
             <option value='1'>1</option>
             <option value='2'>2</option>
@@ -81,7 +83,9 @@ if (! defined('ABSPATH')){
             <option value='9'>9</option>
             <option value='10'>10</option>
          </select>
-         <small class="field-message-error">Error text</small>
+         <small id="number-error" class="field-message">
+            How many beds do you want?
+         </small>
       </div>
 
       <hr>

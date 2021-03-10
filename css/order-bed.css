@@ -1,12 +1,34 @@
 #bed-order-form .field-container {
   padding: 10px 0 10px 0;
+  position: relative;
 }
 
 #bed-order-form .field-container input, #bed-order-form .field-container select {
   padding: 5px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #bdbdbd;
+  border-radius: 2px;
 }
 
-#bed-order-form .field-container .field-message-error {
+#bed-order-form .field-container input.show-error, #bed-order-form .field-container select.show-error {
+  border-bottom: 2px solid red;
+}
+
+#bed-order-form .field-container .field-message {
+  display: none;
+  position: absolute;
+}
+
+#bed-order-form .field-container .field-message.error {
   color: #cc0000;
+}
+
+#bed-order-form .field-container .field-message.success {
+  color: #00a300;
+}
+
+#bed-order-form .field-container .field-message.show-error {
+  display: block;
 }
 /*# sourceMappingURL=order-bed.css.map */
