@@ -112,26 +112,32 @@ class CurbsidePlugin
 
    public function submit_bed_order(){
       $name = sanitize_text_field( $_POST['name'] );
-      $to = sanitize_email( $_POST['email'] );
+      $customer_email = sanitize_email( $_POST['email'] );
       $area = sanitize_text_field( $_POST['area'] );
       $bed_count = sanitize_text_field( $_POST['number-of-beds'] );
       
-      $reply_email = 'ian@curbsidefarms.ca';
-      $message = $name . " ordered " . $bed_count . " garden beds!";
+      $admin_public_email = "ian@curbsidefarms.ca";
+      $admin_private_email = "ianrdejong@gmail.com";
+
+      $this->send_customer_bed_order_email($name, $customer_email, $bed_count, $admin_public_email);
+      $this->send_admin_bed_order_email($name, $customer_email, $bed_count, $area, $admin_public_email, $admin_private_email);
+      wp_die();
+   }
    
-      //php mailer variables
-      $subject = "New Bed Order";
+      function send_customer_bed_order_email($name, $email, $bed_count, $reply_email){
+         $subject = "Garden Bed Order";
+         $message = "Hi " . $name . ". We've received your order for " . $bed_count . " garden bed(s) and will contact you as soon as it's ready. Thank you very much for your interest in our project!";
+         $headers = 'From: '. $reply_email . "\r\n" .
+            'Reply-To: ' . $reply_email . "\r\n";
+         wp_mail($email, $subject, strip_tags($message), $headers);
+      }
+
+   function send_admin_bed_order_email($name, $customer_email, $bed_count, $area, $reply_email, $admin_email){
+      $subject = "New Bed Order Received";
+      $message = "New order from " . $name . " (" . $customer_email . ") in " . $area . " for " . $bed_count . " beds.";
       $headers = 'From: '. $reply_email . "\r\n" .
          'Reply-To: ' . $reply_email . "\r\n";
-      
-      $sent = wp_mail($to, $subject, strip_tags($message), $headers);
-      if($sent){
-         echo "sent message: " . $message;
-      }
-      else{
-         echo "message send failed";
-      }
-      wp_die();
+      wp_mail($admin_email, $subject, strip_tags($message), $headers);
    }
 
    function get_order_bed(){
