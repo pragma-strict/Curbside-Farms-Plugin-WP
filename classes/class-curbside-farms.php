@@ -111,12 +111,26 @@ class CurbsidePlugin
    }
 
    public function submit_bed_order(){
-      // Sanitize data
+      $name = sanitize_text_field( $_POST['name'] );
+      $to = sanitize_email( $_POST['email'] );
+      $area = sanitize_text_field( $_POST['area'] );
+      $bed_count = sanitize_text_field( $_POST['number-of-beds'] );
       
-      // Store data
+      $reply_email = 'ian@curbsidefarms.ca';
+      $message = $name . " ordered " . $bed_count . " garden beds!";
+   
+      //php mailer variables
+      $subject = "New Bed Order";
+      $headers = 'From: '. $reply_email . "\r\n" .
+         'Reply-To: ' . $reply_email . "\r\n";
       
-      // Send response!
-      echo 'Post request receieved!';
+      $sent = wp_mail($to, $subject, strip_tags($message), $headers);
+      if($sent){
+         echo "sent message: " . $message;
+      }
+      else{
+         echo "message send failed";
+      }
       wp_die();
    }
 
