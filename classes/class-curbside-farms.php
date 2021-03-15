@@ -46,6 +46,7 @@ class CurbsidePlugin
       //CurbsidePlugin::trash_pages();
    }
 
+
    // Add Curbside pages unless pages with the same name already exist.
    function add_pages(){ 
       foreach( $this->curbside_page_titles as $title => $shortcode){
@@ -64,6 +65,7 @@ class CurbsidePlugin
       return $posts_with_title;
    }
 
+
    // Move Curbside pages to trash
    function trash_pages(){
       foreach( $this->curbside_page_titles as $title => $shortcode){
@@ -74,6 +76,7 @@ class CurbsidePlugin
          }
       }
    }
+
 
    function get_cs_pages_by_query(){
       $meta_args = array(
@@ -87,6 +90,7 @@ class CurbsidePlugin
       return $posts;
    }
 
+
    // Return array of WP_Posts with meta keys matching the curbside page meta key
    function get_curbside_pages(){
       $get_post_args = array(
@@ -99,6 +103,8 @@ class CurbsidePlugin
       return $posts;
    }
 
+
+   // Return all posts matching a title
    function get_posts_with_title($title){
       $get_post_args = array(
          'title' => $title,
@@ -110,6 +116,8 @@ class CurbsidePlugin
       return $posts;
    }
 
+   
+   // Process bed order submissions (just sending emails for now)
    public function submit_bed_order(){
       $name = sanitize_text_field( $_POST['name'] );
       $customer_email = sanitize_email( $_POST['email'] );
@@ -124,14 +132,18 @@ class CurbsidePlugin
       wp_die();
    }
    
-      function send_customer_bed_order_email($name, $email, $bed_count, $reply_email){
-         $subject = "Garden Bed Order";
-         $message = "Hi " . $name . ". We've received your order for " . $bed_count . " garden bed(s) and will contact you as soon as it's ready. Thank you very much for your interest in our project!";
-         $headers = 'From: '. $reply_email . "\r\n" .
-            'Reply-To: ' . $reply_email . "\r\n";
-         wp_mail($email, $subject, strip_tags($message), $headers);
-      }
+   
+   // Send email to customers when a new bed order is processed
+   function send_customer_bed_order_email($name, $email, $bed_count, $reply_email){
+      $subject = "Garden Bed Order";
+      $message = "Hi " . $name . ". We've received your order for " . $bed_count . " garden bed(s) and will contact you as soon as it's ready. Thank you very much for your interest in our project!";
+      $headers = 'From: '. $reply_email . "\r\n" .
+         'Reply-To: ' . $reply_email . "\r\n";
+      wp_mail($email, $subject, strip_tags($message), $headers);
+   }
 
+
+   // Send an email to admins when a new bed order is processed
    function send_admin_bed_order_email($name, $customer_email, $bed_count, $area, $reply_email, $admin_email){
       $subject = "New Bed Order Received";
       $message = "New order from " . $name . " (" . $customer_email . ") in " . $area . " for " . $bed_count . " beds.";
@@ -140,22 +152,28 @@ class CurbsidePlugin
       wp_mail($admin_email, $subject, strip_tags($message), $headers);
    }
 
+
+   // Get HTML for the bed order page
    function get_order_bed(){
       ob_start();
       require_once(plugin_dir_path( __FILE__ ) . "../templates/order-bed.php");
       return ob_get_clean();
    }
 
+
+   // Get HTML for the vision page
    function get_vision(){
       ob_start();
       require_once(plugin_dir_path( __FILE__ ) . "../templates/about.php");
       return ob_get_clean();
    }
 
+
    function register_shortcodes(){
       add_shortcode( 'cs_order_bed', array( $this, 'get_order_bed' ) );
       add_shortcode( 'cs_vision', array( $this, 'get_vision' ) );
    }
+
 
    function register_actions(){
       add_action( 'wp_ajax_submit_bed_order', array( $this, 'submit_bed_order'));

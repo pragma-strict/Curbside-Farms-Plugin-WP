@@ -34,7 +34,7 @@ if (! defined('ABSPATH')){
 
 <div class="container">
    <h3>Order a garden bed</h3>
-   <p>All beds are handmade in Fairfield from locally-sourced wooden pallets</p>
+   <p>All beds are handmade in Fairfield from repurposed wooden pallets</p>
    <hr>
 
    <form id="bed-order-form" action="#" method="post" data-url="<? echo admin_url('admin-ajax.php'); ?>">
@@ -91,10 +91,10 @@ if (! defined('ABSPATH')){
       <hr>
 
       <div class="field-container">
+         <p>Note: We are currently working through a backlog of orders and will build yours as soon as possible. </p>
+         <p>Also, we can <b>only accept cash</b> payments at the time of delivery until we upgrade our website. For questions, cancellations or alterations, email: ianrdejong@gmail.com</p>
          <button type='submit' class='btn btn-primary'>Place Order</button>
          <small id="submission-in-progress" class="field-message success">Submission in progress...</small>
-         <p>Beds are $35 each. We can only accept payment at time of delivery for now.</p>
-         <p>For cancellations or alterations, email: ianrdejong@gmail.com</p>
       </div>
       
       <input type="hidden" name="action" value="submit_bed_order">
