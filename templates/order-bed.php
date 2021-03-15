@@ -88,6 +88,12 @@ if (! defined('ABSPATH')){
          </small>
       </div>
 
+      <div>
+         <p>
+            Total: $<span id="order-price"></span>
+         </p>
+      </div>
+
       <hr>
 
       <div class="field-container">

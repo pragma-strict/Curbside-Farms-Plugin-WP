@@ -1,23 +1,22 @@
+const BED_PRICE = 35;
+
+let bedOrderForm;
+let data;
+
 // Define a function to run when once the DOM is fully loaded.
 document.addEventListener('DOMContentLoaded', function(e) {
-   let bedOrderForm = document.getElementById('bed-order-form');
+   bedOrderForm = document.getElementById('bed-order-form');
+   data = getFormData();
+   updateOrderPrice();
 
-   // Clear error messages on input to any field
-   bedOrderForm.querySelectorAll(".field").forEach(field => field.addEventListener('input', resetFieldMessages));
+   // Add listener for input on all fields
+   bedOrderForm.querySelectorAll(".field").forEach(field => field.addEventListener('input', inputReceived));
 
    // Define what happens when form is submitted
    bedOrderForm.addEventListener('submit', (e) => {
       
       // Prevent the default form submission behaviour so we can define our own
       e.preventDefault();  
-
-      // Collect data from our form using querySelector on the form itself to avoid conflicts 
-      let data = {
-         name: bedOrderForm.querySelector("[id=name]").value,
-         email: bedOrderForm.querySelector("[id=email]").value,
-         area: bedOrderForm.querySelector("[id=area]").value,
-         numberOfBeds: bedOrderForm.querySelector("[id=number-of-beds]").value
-      }
 
       //If any bad input is found, add the error CSS and return. 
       if(! data.name){
@@ -44,6 +43,8 @@ document.addEventListener('DOMContentLoaded', function(e) {
          return;
       }
 
+      
+
       // Disable the button when ready to submit request
       let submitButton = bedOrderForm.querySelector("[type=submit]");
       submitButton.disabled = true;
@@ -63,9 +64,37 @@ document.addEventListener('DOMContentLoaded', function(e) {
    })
 });
 
+
+// Called whenever there is input to the fields
+function inputReceived(){
+   resetFieldMessages();
+   data = getFormData();
+   updateOrderPrice();
+}
+
+
+// Get form data using querySelector on the form itself to avoid conflicts
+function getFormData(){
+   return {
+      name: bedOrderForm.querySelector("[id=name]").value,
+      email: bedOrderForm.querySelector("[id=email]").value,
+      area: bedOrderForm.querySelector("[id=area]").value,
+      numberOfBeds: bedOrderForm.querySelector("[id=number-of-beds]").value
+   }
+}
+
 function resetFieldMessages(){
    document.querySelectorAll(".field-message").forEach(field => field.classList.remove('show-message'));
    document.querySelectorAll(".field").forEach(field => field.classList.remove("show-message"));
+}
+
+function updateOrderPrice(){
+   let orderCostElement = document.getElementById('order-price');
+   let cost = "0.00";
+   if(data.numberOfBeds != "undefined"){
+      cost = (data.numberOfBeds * BED_PRICE) + ".00";
+   }
+   orderCostElement.innerHTML = cost;
 }
 
 function validateEmail(email){
