@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
       .then(response => response.json())
       .catch(() => console.log("Something went wrong."))
       .then((data) => {
-         bedOrderForm.innerHTML = 
+         document.getElementById("bed-order-template").innerHTML = 
          "<h3>Thank you!</h3>" + 
          "<p>You will receieve a confirmation email shortly.</p>";
          console.log(data);

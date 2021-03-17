@@ -32,7 +32,7 @@ if (! defined('ABSPATH')){
 
 <div style='min-height: 2rem;'></div>
 
-<div class="container">
+<div class="container" id="bed-order-template">
    <h3>Order a garden bed</h3>
    <p>All beds are handmade in Fairfield from repurposed wooden pallets</p>
    <hr>
