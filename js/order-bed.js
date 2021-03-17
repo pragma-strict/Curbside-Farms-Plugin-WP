@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
       // Disable the button when ready to submit request
       let submitButton = bedOrderForm.querySelector("[type=submit]");
       submitButton.disabled = true;
+      let sbOriginalHTML = submitButton.innerHTML;
       submitButton.innerHTML = "One moment please...";
 
       // Make the POST request with fetch()
@@ -60,7 +61,13 @@ document.addEventListener('DOMContentLoaded', function(e) {
       }
       fetch(url, requestOptions)
       .then(response => response.json())
-      .then(data => console.log(data))
+      .catch(() => console.log("Something went wrong."))
+      .then((data) => {
+         bedOrderForm.innerHTML = 
+         "<h3>Thank you!</h3>" + 
+         "<p>You will receieve a confirmation email shortly.</p>";
+         console.log(data);
+      })
    })
 });
 
