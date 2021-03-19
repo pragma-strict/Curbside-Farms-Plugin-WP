@@ -169,9 +169,17 @@ class CurbsidePlugin
    }
 
 
+   function get_cs_wc_tester(){
+      ob_start();
+      require_once(plugin_dir_path( __FILE__ ) . "../templates/cf-wc-modulator.php");
+      return ob_get_clean();
+   }
+
+
    function register_shortcodes(){
       add_shortcode( 'cs_order_bed', array( $this, 'get_order_bed' ) );
       add_shortcode( 'cs_vision', array( $this, 'get_vision' ) );
+      add_shortcode( 'cs_wc_tester', array( $this, 'get_cs_wc_tester') );
    }
 
 

@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
       // Disable the button when ready to submit request
       let submitButton = bedOrderForm.querySelector("[type=submit]");
       submitButton.disabled = true;
-      let sbOriginalHTML = submitButton.innerHTML;
       submitButton.innerHTML = "One moment please...";
 
       // Make the POST request with fetch()
