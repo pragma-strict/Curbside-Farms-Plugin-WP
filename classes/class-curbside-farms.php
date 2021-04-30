@@ -30,7 +30,8 @@ class CurbsidePlugin
    // Titles of pages the plugin creates. Duplicates will not be added.
    public $curbside_page_titles = array(
       "Order Bed" => "[cs_order_bed]",
-      "Vision" => "[cs_vision]"
+      "Vision" => "[cs_vision]",
+      "Our Team" => "[cs_our_team]"
    ); 
    public $curbside_page_meta_key = "curbside_farms_page";
 
@@ -169,6 +170,12 @@ class CurbsidePlugin
    }
 
 
+   function get_our_team(){
+      ob_start();
+      require_once(plugin_dir_path( __FILE__ ) . "../templates/our-team.php");
+   }
+
+
    function get_cs_wc_tester(){
       ob_start();
       require_once(plugin_dir_path( __FILE__ ) . "../templates/cf-wc-modulator.php");
@@ -180,6 +187,7 @@ class CurbsidePlugin
       add_shortcode( 'cs_order_bed', array( $this, 'get_order_bed' ) );
       add_shortcode( 'cs_vision', array( $this, 'get_vision' ) );
       add_shortcode( 'cs_wc_tester', array( $this, 'get_cs_wc_tester') );
+      add_shortcode( 'cs_our_team', array( $this, 'get_our_team') );
    }
 
 
