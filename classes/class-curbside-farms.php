@@ -183,6 +183,9 @@ class CurbsidePlugin
    }
 
 
+   /*
+      Registers all shortcodes that this plugin defines by telling WP which functions they should call
+   */
    function register_shortcodes(){
       add_shortcode( 'cs_order_bed', array( $this, 'get_order_bed' ) );
       add_shortcode( 'cs_vision', array( $this, 'get_vision' ) );
@@ -191,6 +194,9 @@ class CurbsidePlugin
    }
 
 
+   /*
+      Hooks some functions to WP actions. (Does this mean that 'wp_ajax_submit_bed_order' is an action?)
+   */
    function register_actions(){
       add_action( 'wp_ajax_submit_bed_order', array( $this, 'submit_bed_order'));
 
