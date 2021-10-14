@@ -31,7 +31,7 @@ class CurbsidePlugin
    public $curbside_page_titles = array(
       "Order Bed" => "[cs_order_bed]",
       "Vision" => "[cs_vision]",
-      "Our Team" => "[cs_our_team]"
+      "Get Involved" => "[cs_get_involved]"
    ); 
    public $curbside_page_meta_key = "curbside_farms_page";
 
@@ -162,17 +162,11 @@ class CurbsidePlugin
    }
 
 
-   // Get HTML for the vision page
-   function get_vision(){
+   // Get HTML for the Get Involved page
+   function get_get_involved(){
       ob_start();
-      require_once(plugin_dir_path( __FILE__ ) . "../templates/about.php");
+      require_once(plugin_dir_path( __FILE__ ) . "../templates/get-involved.php");
       return ob_get_clean();
-   }
-
-
-   function get_our_team(){
-      ob_start();
-      require_once(plugin_dir_path( __FILE__ ) . "../templates/our-team.php");
    }
 
 
@@ -188,9 +182,8 @@ class CurbsidePlugin
    */
    function register_shortcodes(){
       add_shortcode( 'cs_order_bed', array( $this, 'get_order_bed' ) );
-      add_shortcode( 'cs_vision', array( $this, 'get_vision' ) );
+      add_shortcode( 'cs_get_involved', array( $this, 'get_get_involved' ) );
       add_shortcode( 'cs_wc_tester', array( $this, 'get_cs_wc_tester') );
-      add_shortcode( 'cs_our_team', array( $this, 'get_our_team') );
    }
 
 
