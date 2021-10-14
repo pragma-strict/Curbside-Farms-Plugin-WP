@@ -6,7 +6,7 @@
  /**
   * Plugin Name: Curbside Farms Plugin
   * Plugin URI: https://curbsidefarms.ca/
-  * Description: This adds some pages and associated functionality for the Curbside Farms website
+  * Description: This adds some pages and associated functionality to the Curbside Farms website
   * Author: Ian DeJong
   * Author URI: https://github.com/pragma-strict
   * Text Domain: curbside-farms
