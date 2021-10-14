@@ -23,13 +23,13 @@ if(class_exists('CurbsidePlugin')){
     $curbsidePlugin = new CurbsidePlugin();
 }
 
-// Activate plugin
+// Hook activation function defined in the CurbsidePlugin class
 register_activation_hook( __FILE__, array($curbsidePlugin, 'activate') );
 
-// Deactivate plugin
+// Hook deactivation function defined in the CurbsidePlugin class
 register_deactivation_hook( __FILE__, array($curbsidePlugin, 'deactivate') );
 
-// Uninstall plugin
+// Hook uninstall function defined in the CurbsidePlugin class
 //register_uninstall_hook( __FILE__, array($curbsidePlugin, 'uninstall') );
 
 $curbsidePlugin->register_shortcodes();
